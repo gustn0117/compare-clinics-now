@@ -76,12 +76,7 @@ function Hero() {
 
       {/* Center content */}
       <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-28 text-center">
-        <span className="anim-up inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-5 py-2 text-sm font-medium">
-          {I.check("w-4 h-4 text-teal-400")}
-          100% Free Comparison
-        </span>
-
-        <h1 className="anim-up anim-d1 mx-auto mt-8 max-w-3xl text-4xl font-extrabold leading-[1.12] sm:text-5xl lg:text-6xl">
+        <h1 className="anim-up mx-auto max-w-3xl text-4xl font-extrabold leading-[1.12] sm:text-5xl lg:text-6xl">
           Stop Overpaying for<br />
           <span className="bg-gradient-to-r from-teal-400 to-cyan-300 bg-clip-text text-transparent">Your Glow Up</span>
         </h1>
