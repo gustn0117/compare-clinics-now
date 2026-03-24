@@ -210,6 +210,10 @@ function Steps() {
             </div>
           ))}
         </div>
+        <a href="#quote" className="mt-12 inline-flex items-center gap-2 rounded-full bg-teal-500 px-7 py-3.5 font-semibold text-white hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/20 group">
+          Compare Clinics Now
+          {I.arrow("w-4 h-4 group-hover:translate-x-1 transition-transform")}
+        </a>
       </div>
     </section>
   );
@@ -246,6 +250,12 @@ function WhyChooseUs() {
               <p className="mt-1.5 text-sm leading-relaxed text-white/55">{r.desc}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <a href="#quote" className="inline-flex items-center gap-2 rounded-full bg-teal-500 px-7 py-3.5 font-semibold text-white hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/25 group">
+            Compare Clinics Now
+            {I.arrow("w-4 h-4 group-hover:translate-x-1 transition-transform")}
+          </a>
         </div>
       </div>
     </section>
@@ -420,22 +430,46 @@ function ConsultationProcess() {
         <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Consultation Process</h2>
         <div className="divider-bar mt-6" />
 
-        <div className="mt-14 flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-0">
+        {/* Desktop */}
+        <div className="mt-14 hidden sm:flex items-center justify-center">
           {processSteps.map((s, i) => (
             <div key={s.title} className="flex items-center">
               <div className="flex flex-col items-center w-32">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-400 text-white shadow-lg shadow-teal-500/20">
+                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-400 text-white shadow-lg shadow-teal-500/20">
                   {s.icon("w-6 h-6")}
+                  <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-teal-600 shadow">{i + 1}</span>
                 </div>
                 <p className="mt-2.5 text-xs font-bold">{s.title}</p>
                 <p className="text-[11px] text-gray-400">{s.kr}</p>
               </div>
               {i < processSteps.length - 1 && (
-                <div className="hidden sm:flex items-center mx-1 text-teal-300/40">
+                <div className="flex items-center mx-1 text-teal-300/40">
                   <div className="w-6 border-t-2 border-dashed border-current" />
                   {I.arrow("w-3.5 h-3.5")}
                 </div>
               )}
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile — vertical timeline */}
+        <div className="mt-14 flex flex-col items-start gap-0 sm:hidden mx-auto max-w-xs">
+          {processSteps.map((s, i) => (
+            <div key={s.title} className="flex gap-4 items-start relative">
+              {/* Vertical line */}
+              {i < processSteps.length - 1 && (
+                <div className="absolute left-[22px] top-14 bottom-0 w-0.5 bg-teal-200" />
+              )}
+              {/* Icon with number */}
+              <div className="relative shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-400 text-white shadow-md">
+                {s.icon("w-5 h-5")}
+                <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-teal-600 shadow">{i + 1}</span>
+              </div>
+              {/* Text */}
+              <div className="pb-8 text-left">
+                <p className="text-sm font-bold">{s.title}</p>
+                <p className="text-xs text-gray-400">{s.kr}</p>
+              </div>
             </div>
           ))}
         </div>
