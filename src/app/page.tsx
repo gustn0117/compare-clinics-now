@@ -224,6 +224,10 @@ function Steps() {
             </div>
           ))}
         </div>
+        <a href="#quote" className="mt-12 inline-flex items-center gap-2 rounded-full bg-teal-500 px-7 py-3.5 font-semibold text-white hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/25 group">
+          Compare Clinics Now
+          {I.arrow("w-4 h-4 group-hover:translate-x-1 transition-transform")}
+        </a>
       </div>
     </section>
   );
@@ -260,12 +264,6 @@ function WhyChooseUs() {
               <p className="mt-1.5 text-sm leading-relaxed text-white/55">{r.desc}</p>
             </div>
           ))}
-        </div>
-        <div className="mt-12 text-center">
-          <a href="#quote" className="inline-flex items-center gap-2 rounded-full bg-teal-500 px-7 py-3.5 font-semibold text-white hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/25 group">
-            Compare Clinics Now
-            {I.arrow("w-4 h-4 group-hover:translate-x-1 transition-transform")}
-          </a>
         </div>
       </div>
     </section>
