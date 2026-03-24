@@ -422,11 +422,11 @@ function QuoteForm() {
 
 /* ═══════ CONSULTATION PROCESS ═══════ */
 const processSteps = [
-  { icon: I.form, title: "Submit Form", kr: "폼 신청" },
-  { icon: I.phone, title: "Coordinator Contact", kr: "담당자 연락" },
-  { icon: I.hospital, title: "Clinic Guidance", kr: "병원 안내" },
-  { icon: I.walk, title: "Clinic Visit", kr: "병원 방문" },
-  { icon: I.medical, title: "Procedure", kr: "시술 진행" },
+  { icon: I.form, title: "Submit Form" },
+  { icon: I.phone, title: "Coordinator Contact" },
+  { icon: I.hospital, title: "Clinic Guidance" },
+  { icon: I.walk, title: "Clinic Visit" },
+  { icon: I.medical, title: "Procedure" },
 ];
 
 function ConsultationProcess() {
@@ -448,7 +448,6 @@ function ConsultationProcess() {
                   <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-teal-600 shadow">{i + 1}</span>
                 </div>
                 <p className="mt-2.5 text-xs font-bold">{s.title}</p>
-                <p className="text-[11px] text-gray-400">{s.kr}</p>
               </div>
               {i < processSteps.length - 1 && (
                 <div className="flex items-center mx-1 text-teal-300/40">
@@ -476,7 +475,6 @@ function ConsultationProcess() {
               {/* Text */}
               <div className="pb-8 text-left">
                 <p className="text-sm font-bold">{s.title}</p>
-                <p className="text-xs text-gray-400">{s.kr}</p>
               </div>
             </div>
           ))}
