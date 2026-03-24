@@ -175,6 +175,10 @@ function Services() {
             </div>
           ))}
         </div>
+        <a href="#quote" className="mt-12 inline-flex items-center gap-2 rounded-full bg-teal-500 px-7 py-3.5 font-semibold text-white hover:bg-teal-400 transition-all shadow-lg shadow-teal-500/20 group">
+          Get Free Quote
+          {I.arrow("w-4 h-4 group-hover:translate-x-1 transition-transform")}
+        </a>
       </div>
     </section>
   );
@@ -195,11 +199,12 @@ function Steps() {
         <p className="text-sm font-semibold uppercase tracking-widest text-primary">How It Works</p>
         <h2 className="mt-3 text-3xl font-bold sm:text-4xl">3 Simple Steps</h2>
         <div className="divider-bar mt-6" />
-        <div className="mt-14 grid gap-10 sm:grid-cols-3">
+        {/* Desktop */}
+        <div className="mt-14 hidden sm:grid gap-10 sm:grid-cols-3">
           {steps.map((s, i) => (
             <div key={s.n} className="relative flex flex-col items-center">
               {i < steps.length - 1 && (
-                <div className="hidden sm:block absolute top-7 left-[60%] w-[80%] border-t-2 border-dashed border-teal-200" />
+                <div className="absolute top-7 left-[60%] w-[80%] border-t-2 border-dashed border-teal-200" />
               )}
               <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-400 text-white shadow-lg shadow-teal-500/25">
                 {s.icon("w-6 h-6")}
@@ -207,6 +212,32 @@ function Steps() {
               </div>
               <h3 className="mt-5 font-bold">{s.title}</h3>
               <p className="mt-2 text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile — vertical with numbers & arrows */}
+        <div className="mt-14 flex flex-col items-start gap-0 sm:hidden mx-auto max-w-xs">
+          {steps.map((s, i) => (
+            <div key={s.n}>
+              <div className="flex gap-4 items-start relative">
+                {i < steps.length - 1 && (
+                  <div className="absolute left-[22px] top-14 bottom-0 w-0.5 bg-teal-200" />
+                )}
+                <div className="relative shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-400 text-white shadow-md">
+                  {s.icon("w-5 h-5")}
+                  <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-teal-600 shadow">{s.n}</span>
+                </div>
+                <div className={i < steps.length - 1 ? "pb-8 text-left" : "text-left"}>
+                  <p className="text-sm font-bold">{s.title}</p>
+                  <p className="mt-1 text-xs text-gray-500 leading-relaxed">{s.desc}</p>
+                </div>
+              </div>
+              {i < steps.length - 1 && (
+                <div className="flex justify-start pl-[18px] -mt-4 mb-4 text-teal-300">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+              )}
             </div>
           ))}
         </div>
