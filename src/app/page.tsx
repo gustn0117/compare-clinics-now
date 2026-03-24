@@ -522,8 +522,7 @@ function Footer() {
   return (
     <footer className="bg-slate-900 py-12 text-center text-slate-400 text-sm">
       <div className="mx-auto max-w-4xl px-6 space-y-4">
-        <div className="flex items-center justify-center gap-2.5">
-          <Image src="/images/logo.png" alt="CCN" width={32} height={32} className="rounded-md brightness-200" />
+        <div className="flex items-center justify-center">
           <span className="text-white text-base font-bold">Compare Clinics Now</span>
         </div>
         <div className="flex justify-center gap-6 text-sm">
