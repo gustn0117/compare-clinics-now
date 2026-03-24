@@ -367,7 +367,14 @@ function QuoteForm() {
           <p className="mt-3 text-gray-500">We&apos;ll only contact you regarding your specific request.</p>
         </div>
 
-        <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); try { (window as any).fbq?.("track", "CompleteRegistration"); } catch {} }} className="mt-10 space-y-5 rounded-3xl border border-gray-100 bg-section-bg p-7 shadow-sm sm:p-8">
+        <form onSubmit={async (e) => {
+          e.preventDefault();
+          try {
+            await fetch("/api/submit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
+            (window as any).fbq?.("track", "CompleteRegistration");
+          } catch {}
+          setSubmitted(true);
+        }} className="mt-10 space-y-5 rounded-3xl border border-gray-100 bg-section-bg p-7 shadow-sm sm:p-8">
           {[
             { label: "Full Name", key: "name", ph: "Your name" },
             { label: "Nationality", key: "nationality", ph: "e.g. American, Japanese, Vietnamese" },
