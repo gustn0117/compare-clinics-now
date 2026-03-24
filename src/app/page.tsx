@@ -212,28 +212,15 @@ function Steps() {
           ))}
         </div>
 
-        {/* Mobile — vertical with numbers & arrows */}
-        <div className="mt-14 flex flex-col items-start gap-0 sm:hidden mx-auto max-w-xs">
+        {/* Mobile — vertical numbered list */}
+        <div className="mt-14 flex flex-col gap-6 sm:hidden mx-auto max-w-sm">
           {steps.map((s, i) => (
-            <div key={s.n}>
-              <div className="flex gap-4 items-start relative">
-                {i < steps.length - 1 && (
-                  <div className="absolute left-[22px] top-14 bottom-0 w-0.5 bg-teal-200" />
-                )}
-                <div className="relative shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-400 text-white shadow-md">
-                  {s.icon("w-5 h-5")}
-                  <span className="absolute -top-1.5 -right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-teal-600 shadow">{s.n}</span>
-                </div>
-                <div className={i < steps.length - 1 ? "pb-8 text-left" : "text-left"}>
-                  <p className="text-sm font-bold">{s.title}</p>
-                  <p className="mt-1 text-xs text-gray-500 leading-relaxed">{s.desc}</p>
-                </div>
+            <div key={s.n} className="flex gap-4 items-center text-left">
+              <span className="shrink-0 flex h-9 w-9 items-center justify-center rounded-full bg-teal-500 text-white text-sm font-bold shadow">{s.n}</span>
+              <div>
+                <p className="text-sm font-bold">{s.title}</p>
+                <p className="text-xs text-gray-500">{s.desc}</p>
               </div>
-              {i < steps.length - 1 && (
-                <div className="flex justify-start pl-[18px] -mt-4 mb-4 text-teal-300">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-              )}
             </div>
           ))}
         </div>
